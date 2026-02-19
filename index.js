@@ -63,6 +63,25 @@ app.post('/todos', (req, res) => {
     });
 });
 
+app.get("/todos/search", (req,res) => {
+    const {item ,priority} = req.query;
+    const filteredItems = TODO_ITEMS.filter((itemObj) => {
+        if (
+            itemObj.todoItem.toLowerCase().includes(item.toLowerCase())&&
+            itemObj.priority.toLowerCase() == priority.toLowerCase())
+            {
+            return true;
+            }
+
+        return false;
+    });
+    res.json({
+        success: true,       
+        data:filteredItems,
+        message:"Todo items fetched successfully"
+    });
+});
+
 app.get("/todos/:id", (req,res) => {
     const { id } = req.params;
 
@@ -84,6 +103,26 @@ app.get("/todos/:id", (req,res) => {
         })
     }
 });
+
+app.delete("/todos/:id", (req,res) => {
+    const { id } = req.params;
+    const index = TODO_ITEMS.findIndex((item) => item.id == id);
+    
+    if (index > -1){
+        TODO_ITEMS.splice(index,1);
+        res.json({
+            success: true,
+            data:TODO_ITEMS,
+            message:"Todo item deleted successfully"
+        });
+    }else{
+        res.json({
+            success:false,
+            message:"Todo item not found"
+        })
+    }
+});
+
 
 
 app.listen(PORT, () => {

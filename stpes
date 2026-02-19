@@ -1,0 +1,34 @@
+1. create react app
+Run on terminal:
+  - 1. npm create vite@latest
+    2.Project Name
+    3.React
+    4.JavaScript
+  -shortcut : rfce
+2. Install dependencies
+  - npm install
+  - npm install react-router-dom
+  -npm init -y
+  -npm i -D nodemon
+  {In package.json, add "type": "module" and "start": "nodemon index.js" in scripts}
+  -npm install express  
+  
+3. Run the app
+  - npm run dev
+4. Create components
+  - Create a folder named components in src
+  - Create a file named TodoList.jsx in components
+  - Create a file named TodoItem.jsx in components
+5. Create a folder named pages in src
+  - Create a file named Home.jsx in pages
+6. Create a folder named styles in src
+
+
+#notes
+- PUT Method : used to update a resource on the server. It replaces the entire resource with the new data provided in the request body. If the resource does not exist, it can create a new one.
+- PATCH Method : used to partially update a resource on the server. 
+- DELETE Method : used to delete a resource on the server. 
+- GET Method : used to retrieve data from the server. 
+- POST Method : used to send data to the server to create a new resource.
+-Query Parameters : used to filter or sort data when making a GET request. They are added to the URL after a question mark (?).
+         For example, /todos?completed=true will return only completed todos.
